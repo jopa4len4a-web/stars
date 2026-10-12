@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101114">
+  <title>SellStars</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top"><div class="brand"><div class="logo">S</div><div><b>SellStars</b><small>Telegram Stars Store</small></div></div><span class="live">ONLINE</span></header>
+    <main>
+      <section class="hero"><div class="eyebrow">DIGITAL GOODS</div><h1>Звёзды для<br><span>Telegram</span></h1><p>Оформление заказа в пару касаний.</p><div class="price-line"><strong id="unitPrice">10 XTR</strong><span>за каждые 100 Stars</span></div></section>
+      <section class="panel">
+        <div class="section-title"><h2>Новый заказ</h2><span class="tag">МИНИМУМ 100</span></div>
+        <label for="recipient">Username получателя</label><div class="input-wrap"><span>@</span><input id="recipient" placeholder="username" maxlength="32" autocomplete="off"></div>
+        <label for="quantity">Количество звёзд</label><div class="quantity"><button id="minus" aria-label="Уменьшить">−</button><input id="quantity" type="number" min="100" max="100000" step="50" value="100"><button id="plus" aria-label="Увеличить">+</button></div>
+        <div class="total"><span>К оплате в Telegram Stars</span><strong id="total">10 XTR</strong></div>
+        <button class="primary" id="createOrder">Создать заказ <span>↗</span></button>
+        <p class="hint">Оплата проходит в Telegram Stars (XTR). После подтверждения оплаты поставщик получает запрос на доставку. Не закрывайте чат до получения статуса заказа.</p>
+        <div id="notice" class="notice hidden"></div>
+      </section>
+      <section class="panel admin" id="adminPanel">
+        <div class="section-title"><h2>Админ-панель</h2><span class="tag">OWNER</span></div>
+        <p class="hint">Доступ доступен только Telegram-пользователю @ownerparadoxy с валидной подписью Mini App.</p>
+        <div class="stats"><div><small>Заказы</small><b id="ordersCount">—</b></div><div><small>Оборот, ₽</small><b id="gross">—</b></div></div>
+        <h3>Интеграции</h3>
+        <label>Fragment API URL</label><input id="fragmentUrl" placeholder="https://v1.fragmentapi.com/api/v1/partner">
+        <label>Тип баланса поставщика</label><select id="fragmentWallet"><option value="TON">TON</option><option value="USDT">USDT</option></select>
+        <label>Fragment API Key</label><input id="fragmentKey" type="password" placeholder="Оставьте пустым, чтобы не менять">
+        <button class="secondary" id="saveSettings">Сохранить настройки</button>
+        <p class="hint">API-ключ шифруется на сервере и не возвращается в браузер. В Telegram Mini App цифровые товары оплачиваются только в XTR.</p>
+        <h3>Последние заказы</h3><div id="ordersList" class="orders-list">Ожидание авторизации…</div>
+      </section>
+      <section class="panel"><div class="section-title"><h2>Мои заказы</h2><button class="text-button" id="refreshOrders">Обновить</button></div><div id="myOrders" class="orders-list">Откройте Mini App из Telegram.</div></section>
+    </main>
+    <footer>SellStars <span>•</span> Secure order flow</footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
